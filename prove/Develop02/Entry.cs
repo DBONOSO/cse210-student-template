@@ -4,7 +4,7 @@ public class Entry
 {
  public string _date;
  public string _prompt;
- public int _response;
+ public string _response;
 
  public void DisplayEntry()
  {

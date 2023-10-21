@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-class Reference
+class References
 {
  public string Verse {get; private set;}
 }

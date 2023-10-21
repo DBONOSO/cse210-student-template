@@ -11,4 +11,4 @@ class Word
     Text = text;
     IsHidden = false; 
    }
-}
+}  

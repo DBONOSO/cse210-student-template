@@ -43,7 +43,7 @@ class Scripture
       Console.Write($"{Reference}: ");
       foreach (Word word in words)
       {
-         Console.Write(word.IsHidden ? "******" : word.Text + " ");
+         Console.Write(word.IsHidden ? "___" : word.Text + " ");
       }
       Console.WriteLine();
    }

@@ -9,7 +9,7 @@ class Program
     static void Main(string[] args)
 {
         string begin = "-1";
-        Journal journal = new journal();
+        Journal journal = new Journal();
 
         //Journal journal = new Journal("LastVerses");
         //Journal journal2 = new Journal("Martin", "Quintero");

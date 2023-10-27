@@ -27,9 +27,9 @@ class Program
                 scripture.Display();
             }
         }
-    else
-    {
-        Console.WriteLine("Invalid input. Please enter a valid scripture reference and text");
-    }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid scripture reference and text");
+        }
     }
 }

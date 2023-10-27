@@ -1,20 +1,19 @@
-using System;
-
-namespace Library_demo
+public class MathAssignment : Assignment
 {
- public class MathAssignments : Assignment
+ private string _textbookSection;
+ private string _problems;
+
+
+ public MathAssignment(string studentName, string topic, string textbookSection, string problems)
+     : base(studentName, topic)
  {
-  private string _maths = "";
+ 
+  _textbookSection = textbookSection;
+  _problems = problems;
+ }
 
-  public string GetHomeworkList()
-  {
-   return _maths;
-  }
-
-  public void SetMaths(string maths)
-  {
-   _maths = maths;
-  }
- } 
-
+ public string GetHomeworkList()
+ {
+  return $"Section {_textbookSection} Problems {_problems}";
+ }
 }

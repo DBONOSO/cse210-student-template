@@ -4,32 +4,24 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Enter scripture reference and text");
-        string input = Console.ReadLine();
-        string[] inputParts = input.Split(' ', 2);
+        Scripture scripture = new Scripture();
+        scripture.Display();
+        string responde = "";
 
-        if (inputParts.Length == 2)
+        while(responde != "quit")
         {
-            Scripture scripture = new Scripture(inputParts[0], inputParts[1]);
+            Console.WriteLine("Press enter to continue or type quit to finish.");
+            string userResponse = Console.ReadLine();
+            responde = userResponse;
+            scripture.deleteOneWord();
+            Console.Clear();
             scripture.Display();
-            Console.WriteLine("Press Enter to continue or type 'Quit' to exit.");
+            if (scripture.checkHidden() == true)
 
-            while (!scripture.AllWordsHidden())
             {
-                string userInput = Console.ReadLine();
-
-                if (userInput.Equals("quit", StringComparison.OrdinalIgnoreCase))
-                {
-                    break;
-                }
-
-                scripture.HideRandomWord();
-                scripture.Display();
+                Console.WriteLine("Congratulations, you finished");
+                responde = "quit";
             }
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid scripture reference and text");
         }
     }
 }

@@ -3,70 +3,64 @@ using System.Collections;
 
 class Scripture 
 {
-   private string text;
-   private List<Word> words;
+   private string _scriptureText;
 
-   public References Reference {get; private set;}
+   private string _scriptureReference;
+   private string _randomWord;
+   private bool _isCompletelyHidden = false;
 
-   public Scripture(string reference, string text)
+   public Scripture()
    {
-      Reference = new References();
-      this.text = text;
-      words = new List<Word>();
-
-   InitializeWords();
+      _scriptureText = "And I was aled by the Spirit, not bknowing beforehand the things which I should do.";
+      _scriptureReference = getReference();
+      Word newWord = new Word();
+      _randomWord = newWord.separateWords(_scriptureText);
    }
-   private void InitializeWords()
-   {  
-      string[] wordArray = text.Split(' ');
-      foreach (string word in wordArray)
+   
+   public string getReference()
+   {
+      ScriptureReference scriptureReference = new ScriptureReference("6");
+      _scriptureReference = scriptureReference.createReference();
+      return _scriptureReference;
+   }
+
+   public string deleteOneWord()
+   {
+      string str = _scriptureText;
+      List<string> scriptureList = str?.Split(' ').ToList();
+      for(int i=0;i<scriptureList.Count;i++)
       {
-         words.Add(new Word(word));
+         if(scriptureList[i] == _randomWord)
+            scriptureList[i] = "_";
       }
+      string str2 = string.Join(" ", scriptureList.ToArray());
+      _scriptureText = str2;
+      Word newWord = new Word();
+      _randomWord = newWord.separateWords(_scriptureText);
+      return _scriptureText;
    }
-   public bool AllWordsHidden()
+
+   public bool checkHidden()
    {
-      return words.TrueForAll( word => word.IsHidden);
-   }
-   public void HideRandomWord()
-   {
-      int index = GetRandomHiddenWordIndex();
-      if (index != -1)
+      string str = _scriptureText;
+      List<string> scriptureList = str?.Split(' ').ToList();
+      bool isAllEqual = scriptureList.Distinct().Count() == 1;
+      if (isAllEqual == true)
       {
-         words[index].IsHidden = true;
+         _isCompletelyHidden = true;
+         return true;
       }
+      return false;
+   }
+
+   public string getString()
+   {
+      return _scriptureText;
    }
 
    public void Display()
    {
-      Console.Clear();
-      Console.Write($"{Reference}: ");
-      foreach (Word word in words)
-      {
-         Console.Write(word.IsHidden ? "___" : word.Text + " ");
-      }
-      Console.WriteLine();
-   }
-
-   private int GetRandomHiddenWordIndex()
-   {
-      List<int> hiddenWordIndices = new List<int>();
-
-      for (int i = 0; i < words.Count; i++)
-      {
-         if (!words[i].IsHidden)
-         {
-            hiddenWordIndices.Add(i);
-         }
-      }
-
-      if (hiddenWordIndices.Count > 0)
-      {
-         Random random = new Random();
-         int randomIndex = random.Next(hiddenWordIndices.Count);
-         return hiddenWordIndices[randomIndex];
-      }
-      return -1;
+      Console.WriteLine($"{_scriptureReference} - {_scriptureText}");
    }
    
 }

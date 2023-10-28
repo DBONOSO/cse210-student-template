@@ -3,12 +3,21 @@ using System;
 using System.Collections.Generic;
 class Word
 {
-   public string Text { get; set;}
-   public bool IsHidden {get; set;}
+   private bool isHidden = false;
 
-   public Word(string text)
+   public Word()
    {
-    Text = text;
-    IsHidden = false; 
+
+   }
+
+   public string separateWords(string scriptureString)
+   {
+      string str1 = scriptureString;
+      List<string> result = str1?.Split(' ').ToList();
+      var random = new Random();
+      int index = random.Next(result.Count);
+      string randomWord = result[index];
+      Console.WriteLine(randomWord);
+      return randomWord;
    }
 }  

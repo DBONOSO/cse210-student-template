@@ -42,7 +42,7 @@ using System.Security.Cryptography.X509Certificates;
       _duration = duration *100;
     }
 
-    public int getDuration()
+  public int getDuration()
     {
       return _duration;
     }

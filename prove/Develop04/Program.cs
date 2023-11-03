@@ -5,18 +5,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        string responde = "";
+        string response = "";
 
-        while (responde !="4")
+        while (response !="4")
         {
             Console.WriteLine("1. Start breathing activity");
             Console.WriteLine("2. Start reflecting activity");
             Console.WriteLine("3. Start listing activity");
             Console.WriteLine("4. Quit");
             Console.WriteLine("Select a choice from the menu; ");
-            string userResponde = Console.ReadLine();
-            responde = userResponde;
-            int userInput = Console.ReadLine();
+            string userResponse = Console.ReadLine();
+            response = userResponse;
+            int userInput = int.Parse(response);
             Console.Clear();
             Activity activity = new Activity();
 

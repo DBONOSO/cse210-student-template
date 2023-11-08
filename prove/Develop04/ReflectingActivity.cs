@@ -3,11 +3,19 @@
        class ReflectingActivity : Activity
        {
        private string _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+<<<<<<< HEAD
        private string _startMessage = "Welcome to the Reflecting Activity!";
        private List<string> _promptList = new List<string>{
               "Think of a time when you stood up for someone else.", "Think of a time when you did something really difficult",
               "Think of a time when you helped someone in need.", "Think of a time when you did something truly selfless."};
        private string _considerPromptMessage = "Consider the following prompt:";
+=======
+       private string _startMessage = "Welcome to the Reflecting Activity";
+       private List<string> _promptList = new List<string>{
+       "Think of a time when you stood up for someone else.", "Think of a time when you did something really difficult",
+              "Think of a time when you helped someone in need.", "Think of a time when you did something truly selfless."};
+       private string _considerPromptMessage = "Consider the following prompt";
+>>>>>>> 4bc4c1b94788b3b12a8ade9d88fac9ccfe6d26c2
        private List<string> _questionList = new List<string>{"Why was this experience meaningful to you?",
               "Have you ever done anything like this before?", "How did you get started?",
               "How did you feel when it was complete?", "What made this time different than other times when you were not as successful?",
@@ -19,6 +27,7 @@
        private int _duration;
        public ReflectingActivity(int duration) : base(duration)
        {
+<<<<<<< HEAD
 
        _duration = duration;
 
@@ -38,6 +47,19 @@
        reflecting();
        Console.WriteLine(_wellDone);
        Console.WriteLine("");
+=======
+       _duration = duration;
+       }
+       public void runReflectingActivity(int duration)
+       {
+       Console.WriteLine(_startMessage);
+       Console.WriteLine(_description);
+       Activity activity = new Activity();
+       activity.setDuration();
+       _duration = activity.getDuration();
+       reflecting();
+       Console.WriteLine(_wellDone);
+>>>>>>> 4bc4c1b94788b3b12a8ade9d88fac9ccfe6d26c2
        _endMessage = $"You finished {_duration / 100} seconds of reflecting.";
        Console.WriteLine(_endMessage);
        Thread.Sleep(3000);
@@ -86,15 +108,25 @@
 
        }
        }
+<<<<<<< HEAD
 
        Thread.Sleep(2000);
 
        }
+=======
+       Thread.Sleep(2000);
+
+       }
+
+>>>>>>> 4bc4c1b94788b3b12a8ade9d88fac9ccfe6d26c2
        public void displayPrompt()
        {
 
        }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4bc4c1b94788b3b12a8ade9d88fac9ccfe6d26c2
        }

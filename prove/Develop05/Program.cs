@@ -58,7 +58,7 @@ class Program
                 
                 
             }
-            if (userInput == 2) 
+            if (userInput == 2)
             {
                 Console.Clear();
                 Console.WriteLine("");
